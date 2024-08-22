@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/jankaczmarski/contributors/github"
 )
 
 func main() {
