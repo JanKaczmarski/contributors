@@ -16,7 +16,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	c, err := github.NewClient(token)
+	cl, err := github.NewClient(token)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,11 +27,11 @@ func main() {
 }
 
 type contributorLister interface {
-	ContributorList(string) ([]github.Contributor, error)
+	ContributorsList(string) ([]github.Contributor, error)
 }
 
 func process(repo string, c contributorLister) error {
-	cons, err := c.ContributorList(repo)
+	cons, err := c.ContributorsList(repo)
 	if err != nil {
 		return err
 	}
